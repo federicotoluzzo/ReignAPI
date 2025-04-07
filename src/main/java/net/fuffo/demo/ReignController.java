@@ -10,7 +10,7 @@ public class ReignController {
 
     @GetMapping("/reign")
     public String getReignInfo() {
-        return new Test("test", 420).toString();
+        return new Test("test", 420).toJSON ();
     }
 
     private class Test{
@@ -19,6 +19,10 @@ public class ReignController {
         public Test(String name, int age){
             this.name = name;
             this.age = age;
+        }
+
+        public String toJSON(){
+            return "{\"name\":\""+name+"\",\"age\":"+age+"}";
         }
     }
 }
