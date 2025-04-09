@@ -12,6 +12,10 @@ import reign.types.BuildingType;
 import reign.types.ResourceType;
 import reign.types.TerrainType;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class ReignController {
     Reign test;
@@ -25,5 +29,13 @@ public class ReignController {
             test.addTerrain(t);
         }
         return test.toJSON();
+    }
+
+    @GetMapping("/test")
+    public List<String> getTest() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("test_name");
+        list.add("1234");
+        return list.stream().toList();
     }
 }

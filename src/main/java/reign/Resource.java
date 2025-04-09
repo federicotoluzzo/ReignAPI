@@ -1,4 +1,4 @@
--., package reign;
+package reign;
 
 import reign.types.ResourceType;
 
