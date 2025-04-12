@@ -16,17 +16,15 @@ public class Building implements Runnable {
         this.production = production;
         this.productionRate = switch (type) {
             case QUARRY -> 3;
-            case FARM -> 20;
-            case FIELD -> 50;
-            case HUT -> 10;
-            case MINE -> 1;
+            case PIG_FARM -> 20;
+            case FIELD_FARM -> 50;
+            case LUMBERJACK_HUT -> 10;
         };
         this.resource = switch (type){
             case QUARRY -> ResourceType.STONE;
-            case FARM -> ResourceType.MEAT;
-            case FIELD -> ResourceType.VEGETABLE;
-            case HUT -> ResourceType.WOOD;
-            case MINE -> ResourceType.IRON;
+            case PIG_FARM -> ResourceType.MEAT;
+            case FIELD_FARM -> ResourceType.VEGETABLE;
+            case LUMBERJACK_HUT -> ResourceType.WOOD;
         };
     }
 
@@ -45,7 +43,6 @@ public class Building implements Runnable {
             try {
                 TimeUnit.SECONDS.sleep(
                     switch (production.getType()) {
-                        case IRON -> 3;
                         case WOOD -> 5;
                         case MEAT -> 30;
                         case STONE -> 2;
@@ -64,5 +61,13 @@ public class Building implements Runnable {
     @Override
     public String toString() {
         return String.format("{\"type\":\"%s\", \"resource\":\"%s\", \"production\":%s, \"productionRate\":\"%s\"}", type.toString(), resource.toString(), production, productionRate);
+    }
+
+    public int getProductionRate() {
+        return productionRate;
+    }
+
+    public Resource getProduction() {
+        return production;
     }
 }

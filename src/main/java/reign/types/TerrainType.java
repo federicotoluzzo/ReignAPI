@@ -1,6 +1,6 @@
 package reign.types;
 
-public enum TerrainType {
+public enum TerrainType{
     FOREST,
     FIELD,
     MOUNTAIN

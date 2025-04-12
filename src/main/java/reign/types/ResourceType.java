@@ -1,9 +1,8 @@
 package reign.types;
 
-public enum ResourceType {
+public enum ResourceType{
     WOOD,
-    STONE,
     VEGETABLE,
     MEAT,
-    IRON
+    STONE
 }

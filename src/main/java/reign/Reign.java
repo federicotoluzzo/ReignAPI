@@ -34,8 +34,28 @@ public class Reign {
         return map[index];
     }
 
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public Terrain[] getMap() {
+        return map;
+    }
+
     public String toJSON() {
         String ret = String.format("[{\"name\":\"%s\",\"gold\":%d,\"warehouse\":%s,\"map\":%s}]", name, gold, warehouse.toJSON(), Arrays.toString(map));
         return ret;
+    }
+
+    public void setTerrains(Terrain[] terrains) {
+        map = Arrays.copyOf(terrains, terrains.length);
     }
 }

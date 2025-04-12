@@ -57,7 +57,7 @@ public class Warehouse implements Runnable {
     }
 
     public String toJSON(){
-        String ret = "{\"" + warehouse[0].getType() + "\":\"" + warehouse[0].getQuantity() + "\"";
+        String ret = "{\"" + warehouse[0].getType() + "\":" + warehouse[0].getQuantity() + "";
         for (int i = 1; i < warehouse.length; i++) {
             Resource r = warehouse[i];
             ret += ",\"" + r.getType() + "\":";
@@ -65,5 +65,9 @@ public class Warehouse implements Runnable {
         }
         ret += "}";
         return ret;
+    }
+
+    public Resource[] getWarehouse() {
+        return warehouse;
     }
 }

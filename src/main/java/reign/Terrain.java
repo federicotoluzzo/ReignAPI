@@ -42,19 +42,18 @@ public class Terrain {
         switch(type){
             case FIELD -> {
                 HashSet<BuildingType> options = new HashSet<>();
-                options.add(BuildingType.FIELD);
-                options.add(BuildingType.FARM);
+                options.add(BuildingType.FIELD_FARM);
+                options.add(BuildingType.PIG_FARM);
                 return new Terrain(type, options);
             }
             case MOUNTAIN -> {
                 HashSet<BuildingType> options = new HashSet<>();
-                options.add(BuildingType.MINE);
                 options.add(BuildingType.QUARRY);
                 return new Terrain(type, options);
             }
             case FOREST -> {
                 HashSet<BuildingType> options = new HashSet<>();
-                options.add(BuildingType.HUT);
+                options.add(BuildingType.LUMBERJACK_HUT);
                 return new Terrain(type, options);
             }
         };
