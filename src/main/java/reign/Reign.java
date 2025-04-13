@@ -51,8 +51,12 @@ public class Reign {
     }
 
     public String toJSON() {
-        String ret = String.format("[{\"name\":\"%s\",\"gold\":%d,\"warehouse\":%s,\"map\":%s}]", name, gold, warehouse.toJSON(), Arrays.toString(map));
+        String ret = String.format("{\"name\":\"%s\",\"gold\":%d,\"warehouse\":%s,\"map\":%s}", name, gold, warehouse.toJSON(), Arrays.toString(map));
         return ret;
+    }
+
+    public void save(){
+
     }
 
     public void setTerrains(Terrain[] terrains) {

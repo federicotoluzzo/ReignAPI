@@ -2,6 +2,7 @@ package reign;
 
 import reign.types.ResourceType;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class Warehouse implements Runnable {
@@ -30,18 +31,18 @@ public class Warehouse implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            for (Terrain t : terrains) {
-                if(t != null){
-                    if(t.getBuilding() != null){
+            for (int i = 0; i < terrains.length; i++) {
+                if(terrains[i] != null){
+                    if(terrains[i].getBuilding() != null){
                         for (Resource r : warehouse) {
-                            if (r.getType() == t.getBuilding().getResource()){
-                                r.setQuantity(r.getQuantity() + t.getBuilding().collect().getQuantity());
+                            if (r.getType() == terrains[i].getBuilding().getResource()){
+                                r.setQuantity(r.getQuantity() + terrains[i].getBuilding().collect().getQuantity());
+                                break;
                             }
                         }
                     }
                 }
             }
-            System.out.println(toString());
         }
     }
 
@@ -69,5 +70,14 @@ public class Warehouse implements Runnable {
 
     public Resource[] getWarehouse() {
         return warehouse;
+    }
+
+    public void addTerrain(Terrain t){
+        for (int i = 0; i < terrains.length; i++) {
+            if(terrains[i] == null){
+                terrains[i] = t;
+                return;
+            }
+        }
     }
 }
