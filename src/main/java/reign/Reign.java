@@ -1,12 +1,15 @@
 package reign;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Reign {
     private Warehouse warehouse;
     private String name;
     private int gold;
     private Terrain[] map;
+    public HashMap<Integer, String> offers;
 
     public Reign(String name, int gold) {
         this.name = name;

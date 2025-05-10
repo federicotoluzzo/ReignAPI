@@ -10,11 +10,13 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class  Client {
+    final static String serverIP = "192.168.4.35";
+
     public static ArrayList<String> create(String name) {
         Socket socket = null;
         ArrayList<String> response = new ArrayList<String>();
         try{
-            socket = new Socket("127.0.0.1", 6830);
+            socket = new Socket(serverIP, 6830);
 
 
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
@@ -51,7 +53,7 @@ public class  Client {
         Socket socket = null;
         boolean response = true;
         try{
-            socket = new Socket("127.0.0.1", 6830);
+            socket = new Socket(serverIP, 6830);
 
 
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
@@ -82,7 +84,7 @@ public class  Client {
     public static boolean remove(String name) {
         Socket socket = null;
         try{
-            socket = new Socket("192.168.4.60", 6830);
+            socket = new Socket(serverIP, 6830);
 
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -101,7 +103,7 @@ public class  Client {
         Socket socket = null;
         ArrayList<String> response = new ArrayList<String>();
         try{
-            socket = new Socket("127.0.0.1", 6830);
+            socket = new Socket(serverIP, 6830);
 
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -110,8 +112,7 @@ public class  Client {
             out.flush();
 
             String s = in.readLine();
-            while(!s.isEmpty()){
-                System.out.println(s);
+            while(!s.equals("")){
                 response.add(s);
                 s = in.readLine();
             }
